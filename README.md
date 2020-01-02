@@ -1,2 +1,0 @@
-# phonerates
-https://phonerates.xyz

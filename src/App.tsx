@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import {rates} from './rates'
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App: React.FC<{}> = () => {
+  const tabledRates = rates.map((x, i) => (
+    <div className="row" key={i}>
+      <div className="id">{i + 1}</div>
+      <div className="name">{x.name} <span> Phone card rates</span></div>
+      <div className="number number1"><span>$5:</span> {x.five} min</div>
+      <div className="number number2"><span>$10:</span> {x.ten} min</div>
+      <div className="number number3"><span>$20:</span> {x.twenty} min</div>
     </div>
-  );
+  ))
+
+  return (
+    <div className="rates">
+      <main>
+        <div className="table">
+          <div className="row header">
+            <div>#</div>
+            <div>Country / provider</div>
+            <div className="number">$5 Phone Card</div>
+            <div className="number">$10 Phone Card</div>
+            <div className="number">$20 Phone Card</div>
+          </div>
+          {tabledRates}
+        </div>
+      </main>
+    </div>
+  )
 }
 
-export default App;
+export default App

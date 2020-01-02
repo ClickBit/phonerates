@@ -1,38 +1,151 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  * {
+    box-sizing: border-box;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  html, body, #root {
+    background: #333;
   }
-  to {
-    transform: rotate(360deg);
-  }
+ 
+ 
+ .rates {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "table";
+}
+
+.rates main {
+    grid: main;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.rates main .table {
+    width: 94%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.rates .row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40px 1fr repeat(3, 150px);
+    border-left: 1px solid #ccc;
+    background-color: rgb(240, 240, 240);
+    color: #333;
+    margin: auto;
+}
+
+.rates .row:first-child {
+    border-top: 1px solid #ccc;
+}
+
+.rates .row>* {
+    width: 100%;
+    height: 100%;
+    justify-self: start;
+    align-self: center;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.rates .row>div.number {
+    justify-content: flex-end;
+}
+.rates .row>div.id {
+    justify-content: center;
+}
+
+.rates .row.header>div {
+    justify-content: center;
+}
+
+.rates .row:nth-child(even) {
+    background-color: rgb(218, 218, 218);
+}
+
+.rates .row.header {
+    background-color: rgb(62, 128, 182);
+    color: white;
+    pointer-events: none;
+    cursor: auto;
+    font-weight: bold;
+}
+
+.rates .row:hover {
+    background: rgb(87, 219, 164);
+}
+.rates .row span {
+    display: none;
+}
+
+@media screen and (max-width: 699px) {
+    .rates .row.header {
+        display: none;
+    }
+    .rates .row span {
+      display: block;
+    }
+    .rates main .table {
+        width: 100%;
+        margin-top: 0;
+    }
+    .rates .row {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "name name name""number1 number2 number3";
+        border: none;
+        overflow: hidden;
+        border-bottom: 1px solid #ccc;
+        padding: 5px 0;
+    }
+    .rates .row>* {
+        padding: 5px;
+    }
+
+    .rates .row:first-child {
+        border: none;
+    }
+    .rates .row>* {
+        border-right: none;
+        border-bottom: none;
+    }
+    .rates .row>div.number {
+        justify-content: flex-start;
+    }
+    .rates .row>div.number span {
+        display: block;
+        margin-right: 5px;
+        color: rgb(0, 65, 126);
+    }
+    .rates .row .id {
+      display: none;
+    }
+    .rates .row .name {
+      grid-area: name;
+      border-bottom: 1px dotted #999;
+    }
+    .rates .row .name span {
+      margin-left: 5px;
+      font-size: 0.8rem;
+    }
+    .rates .row {
+      text-align: left;
+    }
+    .rates .row .number1 {
+      grid-area: number1;
+    }
+    .rates .row .number2 {
+      grid-area: number2;
+    }
+    .rates .row .number3 {
+      grid-area: number3;
+    }
 }

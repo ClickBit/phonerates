@@ -2,7 +2,10 @@
     box-sizing: border-box;
   }
   html, body, #root {
-    background: #333;
+    width: 100%;
+    height: 100%;
+    background: #666;
+    overflow: hidden;
   }
  
  
@@ -11,8 +14,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "table";
+    grid-template-rows: 60px 1fr;
 }
 
 .rates main {
@@ -72,7 +74,7 @@
 }
 
 .rates .row.header {
-    background-color: rgb(62, 128, 182);
+    background-color: #00417e;
     color: white;
     pointer-events: none;
     cursor: auto;
@@ -80,7 +82,7 @@
 }
 
 .rates .row:hover {
-    background: rgb(87, 219, 164);
+    background: #7dc0ff;
 }
 .rates .row span {
     display: none;
@@ -103,7 +105,7 @@
         grid-template-areas: "name name name""number1 number2 number3";
         border: none;
         overflow: hidden;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 3px solid #666;
         padding: 5px 0;
     }
     .rates .row>* {
@@ -123,7 +125,7 @@
     .rates .row>div.number span {
         display: block;
         margin-right: 5px;
-        color: rgb(0, 65, 126);
+        color: #00417e;
     }
     .rates .row .id {
       display: none;

@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import {rates} from './rates'
+import Header from './Header'
 
 const App: React.FC<{}> = () => {
   const tabledRates = rates.map((x, i) => (
@@ -15,6 +16,7 @@ const App: React.FC<{}> = () => {
 
   return (
     <div className="rates">
+      <Header />
       <main>
         <div className="table">
           <div className="row header">
